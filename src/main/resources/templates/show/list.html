@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des spectacles</title>
+</head>
+<body>
+<h1>Liste des spectacles</h1>
+<form method="get" action="/shows/search">
+    <input type="text" name="tag" placeholder="Rechercher par mot-clé" />
+    <button type="submit">Rechercher</button>
+</form>
+<p th:if="${tag}">Résultats pour le mot-clé : <span th:text="${tag}"></span></p>
+<p th:if="${shows.empty}">Aucun spectacle trouvé.</p>
+<ul>
+    <li th:each="show : ${shows}">
+        <a th:href="@{/shows/{id}(id=${show.id})}" th:text="${show.title}">Show Title</a>
+    </li>
+</ul>
+</body>
+</html>

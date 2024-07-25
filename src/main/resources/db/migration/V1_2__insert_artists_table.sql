@@ -1,4 +1,3 @@
-
 INSERT INTO `artists` (`id`, `firstname`, `lastname`) VALUES
 (1, 'Daniel', 'Marcelin'),
 (2, 'Philippe', 'Laurent'),

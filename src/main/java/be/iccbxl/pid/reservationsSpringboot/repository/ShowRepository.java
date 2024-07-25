@@ -2,7 +2,6 @@ package be.iccbxl.pid.reservationsSpringboot.repository;
 
 import be.iccbxl.pid.reservationsSpringboot.model.Location;
 import be.iccbxl.pid.reservationsSpringboot.model.Show;
-import be.iccbxl.pid.reservationsSpringboot.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

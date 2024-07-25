@@ -1,0 +1,4 @@
+CREATE TABLE tags (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+    `tag` VARCHAR(30) UNIQUE
+);

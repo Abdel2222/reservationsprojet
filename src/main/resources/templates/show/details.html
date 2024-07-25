@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Détails du spectacle</title>
+</head>
+<body>
+<h1 th:text="${show.title}">Show Title</h1>
+<p th:text="${show.description}">Show Description</p>
+<p>Tags:</p>
+<ul>
+    <li th:each="tag : ${show.tags}" th:text="${tag.tag}">Tag</li>
+</ul>
+<form method="post" th:action="@{/shows/{id}/add-tag(id=${show.id})}">
+    <input type="text" name="tag" placeholder="Ajouter un tag" />
+    <button type="submit">Ajouter</button>
+</form>
+<a th:href="@{/shows}">Retour à la liste</a>
+</body>
+</html>
