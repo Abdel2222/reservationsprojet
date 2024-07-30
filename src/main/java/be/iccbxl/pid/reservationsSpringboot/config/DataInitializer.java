@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
 @Component
 public class DataInitializer {
 
@@ -21,25 +20,23 @@ public class DataInitializer {
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent event) {
         // Créer des shows
-        Show show1 = new Show("Show 1", "Description 1", "posterUrl1", null, true, 100);
-        Show show2 = new Show("Show 2", "Description 2", "posterUrl2", null, true, 150);
-        showRepository.save(show1);
-        showRepository.save(show2);
+       // Show show1 = new Show("Show 1", "Description 1", "posterUrl1", null, true, 100);
+       // Show show2 = new Show("Show 2", "Description 2", "posterUrl2", null, true, 150);
+       // showRepository.save(show1);
+
 
         // Créer des tags
         Tag tag1 = new Tag();
-        tag1.setTag("Comedy");
-        tagRepository.save(tag1);
+      //  tag1.setTag("Comedy");
+      //  tagRepository.save(tag1);
 
-        Tag tag2 = new Tag();
-        tag2.setTag("Drama");
-        tagRepository.save(tag2);
+
 
         // Associer des tags aux shows
-        show1.addTag(tag1);
-        show2.addTag(tag2);
-        showRepository.save(show1);
-        showRepository.save(show2);
+      //  show1.addTag(tag1);
+
+      //  showRepository.save(show1);
+
     }
 }
 

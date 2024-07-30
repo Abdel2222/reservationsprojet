@@ -33,12 +33,16 @@
           <p><strong>Prix:</strong> <span th:text="${show.price} + ' €'">9.99 €</span></p>
           <p th:if="${show.bookable}" class="text-success"><em>Réservable</em></p>
           <p th:unless="${show.bookable}" class="text-danger"><em>Non réservable</em></p>
+
+          <!-- Section des représentations -->
           <h2>Liste des représentations</h2>
           <ul th:if="${#lists.size(show.representations) >= 1}">
             <li th:each="representation : ${show.representations}"
                 th:text="${#temporals.format(representation.when,'dd-MM-yyyy HH:mm')}">12-10-2012 13:30</li>
           </ul>
           <p th:if="${#lists.size(show.representations) == 0}">Aucune représentation</p>
+
+          <!-- Section des artistes -->
           <h2>Liste des artistes</h2>
           <p><strong>Auteur:</strong>
             <span th:each="auteur,iter : ${collaborateurs['auteur']}" th:text="${auteur.firstname}+' '+${auteur.lastname}
@@ -58,6 +62,18 @@
               Firstname Lastname
             </span>
           </p>
+
+          <!-- Section des tags -->
+          <h2>Tags</h2>
+          <div>
+            <input type="text" id="search-bar" class="form-control" placeholder="Rechercher par tags...">
+          </div>
+          <ul id="tag-list" class="list-inline mt-2">
+            <li th:each="tag : ${tags}" class="list-inline-item">
+              <span th:text="${tag}" class="badge badge-info">Tag</span>
+            </li>
+          </ul>
+
           <!-- Ajout du bouton "Ajouter au panier" -->
           <form th:action="@{/cart/{id}(id=${show.id})}" method="post">
             <button type="submit" class="btn btn-primary">Ajouter au panier</button>
@@ -71,5 +87,26 @@
   </div>
 
 </div>
+
+<script>
+  // JavaScript pour la recherche de tags
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchBar = document.getElementById('search-bar');
+    const tagList = document.getElementById('tag-list').children;
+
+    searchBar.addEventListener('input', function() {
+      const query = searchBar.value.toLowerCase();
+      for (let tagItem of tagList) {
+        const tag = tagItem.textContent.toLowerCase();
+        if (tag.includes(query)) {
+          tagItem.style.display = '';
+        } else {
+          tagItem.style.display = 'none';
+        }
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

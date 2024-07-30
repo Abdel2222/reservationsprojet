@@ -1,3 +1,3 @@
-INSERT INTO `tags` (`tag`) VALUES ('Comedy');
-INSERT INTO tags (`tag`) VALUES ('Drama');
-INSERT INTO tags (`tag`) VALUES ('Musical');
+INSERT INTO `tags` (`id`,`tag`) VALUES (1,'Comedy'),
+(2,'Drama');
+

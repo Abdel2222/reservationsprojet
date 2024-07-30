@@ -19,7 +19,7 @@ ALTER TABLE `shows`
   ADD KEY `shows_location_id_a6832141_fk_locations_id` (`location_id`);
 
 --
-
+-- Contraintes pour la table `shows`
 --
 ALTER TABLE `shows`
   ADD CONSTRAINT `shows_location_id_a6832141_fk_locations_id` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`);

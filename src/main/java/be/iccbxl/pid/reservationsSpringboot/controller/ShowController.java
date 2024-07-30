@@ -41,28 +41,27 @@ public class ShowController {
 
         return "show/index";
     }
-
     @GetMapping("/shows/{id}")
     public String show(Model model, @PathVariable("id") String id) {
         Show show = service.get(id);
 
-        //Récupérer les artistes du spectacle et les grouper par type
+        // Récupérer les artistes du spectacle et les grouper par type
         Map<String, ArrayList<Artist>> collaborateurs = new TreeMap<>();
 
-        for(ArtisteType at : show.getArtistTypes()) {
-            if(collaborateurs.get(at.getType().getType()) == null) {
+        for (ArtisteType at : show.getArtistTypes()) {
+            if (collaborateurs.get(at.getType().getType()) == null) {
                 collaborateurs.put(at.getType().getType(), new ArrayList<>());
             }
-
             collaborateurs.get(at.getType().getType()).add(at.getArtist());
         }
 
         model.addAttribute("collaborateurs", collaborateurs);
         model.addAttribute("show", show);
-        model.addAttribute("title", "Fiche d'un spectacle");
+        model.addAttribute("tags", show.getTags()); // Ajouter les tags au modèle
 
         return "show/show";
     }
+
 
     @PostMapping("/cart/{id}")
     public String addToCart(@PathVariable("id") String id) {

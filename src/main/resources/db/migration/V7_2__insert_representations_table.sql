@@ -1,4 +1,5 @@
-INSERT INTO `users` (`id`, `login`, `password`, `firstname`, `lastname`, `email`, `langue`,`role`, `created_at`) VALUES
-(1, 'bob', '$2a$12$EyDxX5wWsrJGIyo2MFIRR.LqLmmqssUdPgwasMrG7TvZmjW9ECeLW', 'Bob', 'Sull', 'bob@sull.com','fr','admin','2010-01-01 12:00:00'),
-(2, 'lana', '$2a$12$EyDxX5wWsrJGIyo2MFIRR.LqLmmqssUdPgwasMrG7TvZmjW9ECeLW', 'Lana', 'Sull', 'lana@sull.com','fr','member','2010-01-01 12:00:00'),
-(3, 'affiliate', '$2a$12$EyDxX5wWsrJGIyo2MFIRR.LqLmmqssUdPgwasMrG7TvZmjW9ECeLW', 'Affi', 'Liate', 'contact@affiliate.com','fr','member','2020-01-01 12:00:00')
+INSERT INTO `representations` (`id`, `show_id`, `location_id`, `when`) VALUES
+(1, 1, 1, '2012-10-12 13:30'),
+(2, 1, 2, '2012-10-12 20:30'),
+(3, 2, NULL, '2012-10-02 20:30'),
+(4, 3, NULL, '2012-10-16 20:30');
